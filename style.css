@@ -1,0 +1,275 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+body{
+    background:#f2f4f7;
+    min-height:100vh;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:40px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:6px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   MENU / NAVBAR
+========================= */
+.menu{
+    background:#2c3e50;
+    padding:15px;
+}
+
+.menu a{
+    color:#fff;
+    margin-right:20px;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.menu a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+h1,h2,h3{
+    margin-bottom:20px;
+    color:#2c3e50;
+}
+
+/* =========================
+   FORMS (login, register, leave)
+========================= */
+form{
+    max-width:400px;
+    margin:auto;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    font-size:14px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#3498db;
+    border:none;
+    color:#fff;
+    font-size:15px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2980b9;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   LINKS
+========================= */
+a{
+    color:#3498db;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* =========================
+   ALERTS / MESSAGES
+========================= */
+.error{
+    background:#f8d7da;
+    color:#721c24;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:4px;
+}
+
+.success{
+    background:#d4edda;
+    color:#155724;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:4px;
+}
+
+/* =========================
+   TABLE (Admin manage leaves)
+========================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th, table td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:left;
+}
+
+table th{
+    background:#34495e;
+    color:#fff;
+}
+
+table tr:nth-child(even){
+    background:#f9f9f9;
+}
+
+/* =========================
+   BUTTON LINKS
+========================= */
+.btn{
+    padding:6px 12px;
+    border-radius:4px;
+    color:#fff;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.btn-approve{
+    background:#2ecc71;
+}
+
+.btn-reject{
+    background:#e74c3c;
+}
+
+.btn-approve:hover{ background:#27ae60; }
+.btn-reject:hover{ background:#c0392b; }
+
+/* =========================
+   DASHBOARD CARDS
+========================= */
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card{
+    background:#ecf0f1;
+    padding:20px;
+    border-radius:6px;
+    flex:1;
+    min-width:200px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+/* Button animation */
+.btn {
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* Small footer text */
+.footer-text {
+    margin-top: 35px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
+/* ===== Welcome Page ===== */
+.welcome-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.welcome-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.welcome-container h1 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.welcome-container h2 {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.welcome-container p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
