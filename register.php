@@ -13,35 +13,67 @@ if (isset($_POST['register'])) {
         $error = "Email already exists";
     } else {
         mysqli_query($conn,"INSERT INTO users (name,email,password,role)VALUES ('$name','$email','$pass','$role')");
-        header("Location: login.php");
-        exit();
+        $success = "Account created successfully! Redirecting to login...";
+        header("Refresh: 2; url=login.php");
     }
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Leave Management System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-<h2><center>Register</center></h2>
-<?php if(isset($error)) echo "<p style='color:red'>$error</p>"; ?>
-<form method="post">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
+<body class="welcome-body">
+    <div class="welcome-container">
+        <h1>👤 Create Account</h1>
+        <h2>Register to Leave Management</h2>
 
-    <select name="role" required>
-        <option value="">Select Role</option>
-        <option value="employee">Employee</option>
-        <option value="admin">Admin</option>
-    </select>
-    <button type="submit" name="register">Register</button>
-</form>
-<div class="register-link"><p> Already have an account? click <a href="login.php">Login</a></p>
-</div>
-</div>
+        <?php if(isset($error)): ?>
+            <div class="error">
+                ⚠️ <?php echo htmlspecialchars($error); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if(isset($success)): ?>
+            <div class="success">
+                ✅ <?php echo $success; ?>
+            </div>
+        <?php endif; ?>
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                    <option value="">Select Your Role</option>
+                    <option value="employee">Employee</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </div>
+
+            <button type="submit" name="register">Create Account</button>
+        </form>
+
+        <div class="register-link">
+            <p>Already have an account? <a href="login.php">Sign in here</a></p>
+        </div>
+    </div>
 </body>
 </html>

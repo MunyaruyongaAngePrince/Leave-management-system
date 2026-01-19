@@ -11,9 +11,12 @@ header("Pragma: no-cache");
 /* DATABASE CONNECTION */
 $conn = mysqli_connect("localhost", "root", "", "leave_system");
 
+// Define base URL
+define("BASE_URL", "http://localhost/leave/");
+
 function checkLogin() {
     if (!isset($_SESSION['user'])) {
-        header("Location: " . BASE_URL . "login.php");
+        header("Location: login.php");
         exit();
     }
 }

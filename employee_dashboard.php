@@ -6,7 +6,8 @@ checkEmployee(); // employee only
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Employee Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Leave Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,21 +15,30 @@ checkEmployee(); // employee only
 <?php include "menu.php"; ?>
 
 <div class="container">
-    <h2>Employee Dashboard</h2>
-    <p>Welcome <strong><?php echo $_SESSION['user']['name']; ?></strong></p>
+    <div class="user-profile">
+        <p>Dashboard</p>
+        <h2>👤 <?php echo htmlspecialchars($_SESSION['user']['name']); ?></h2>
+        <p>Manage your leave requests and view your leave balance.</p>
+    </div>
+
+    <h2 class="section-title">Quick Actions</h2>
 
     <div class="cards">
         <div class="card">
-            <h3>Apply for Leave</h3>
-            <p>Request leave from administration.</p>
-            <a href="leave_apply.php" class="btn btn-approve">Apply Leave</a>
+            <h3>📝 Apply for Leave</h3>
+            <p>Submit a new leave request to the administration. Select your dates and provide a reason for your leave.</p>
+            <a href="leave_apply.php" class="btn btn-primary">Apply Leave</a>
         </div>
 
         <div class="card">
-            <h3>My Leave History</h3>
-            <p>View your leave requests status.</p>
-            <a href="leave_history.php" class="btn btn-approve">My Leaves</a>
+            <h3>📋 My Leave History</h3>
+            <p>View all your leave requests, check their status, and see your leave history.</p>
+            <a href="leave_history.php" class="btn btn-primary">My Leaves</a>
         </div>
+    </div>
+
+    <div class="footer-text">
+        💡 Tip: Check your leave history regularly to track your leave balance and request status.
     </div>
 </div>
 

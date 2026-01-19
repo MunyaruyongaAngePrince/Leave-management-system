@@ -1,0 +1,8 @@
+{
+  "name": "leave-management-system",
+  "description": "Modern Professional Leave Management System",
+  "require": {
+    "dompdf/dompdf": "^2.0",
+    "php": ">=7.4"
+  }
+}

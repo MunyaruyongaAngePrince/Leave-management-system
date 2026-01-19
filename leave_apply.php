@@ -14,7 +14,7 @@ if (isset($_POST['apply'])) {
     } else {
         $sql = "INSERT INTO leaves (user_id, reason, start_date, end_date) VALUES ('$user_id', '$reason', '$start_date', '$end_date')";
         mysqli_query($conn, $sql);
-        $success = "Leave applied successfully";
+        $success = "Leave applied successfully! Your request is pending admin approval.";
     }
 }
 ?>
@@ -23,7 +23,8 @@ if (isset($_POST['apply'])) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Apply Leave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Leave - Leave Management System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,26 +32,42 @@ if (isset($_POST['apply'])) {
 <?php include "menu.php"; ?>
 
 <div class="container">
-    <h2><center>Apply for Leave</center></h2>
+    <h2 class="section-title">📝 Apply for Leave</h2>
+    <p class="section-subtitle">Submit your leave request below. The administrator will review and respond shortly.</p>
 
     <?php
-    if (isset($error)) echo "<p class='error'>$error</p>";
-    if (isset($success)) echo "<p class='success'>$success</p>";
+    if (isset($error)) echo "<div class='error'>⚠️ " . htmlspecialchars($error) . "</div>";
+    if (isset($success)) echo "<div class='success'>✅ " . htmlspecialchars($success) . "</div>";
     ?>
 
     <form method="POST">
-        <label>Reason</label>
-        <textarea name="reason" maxlength="20" required></textarea>
-        
+        <div class="form-group">
+            <label for="reason">Reason for Leave</label>
+            <textarea id="reason" name="reason" placeholder="Please provide a reason for your leave request" maxlength="500" required></textarea>
+        </div>
 
-        <label>Start Date</label>
-        <input type="date" name="start_date" required>
+        <div class="form-group">
+            <label for="start_date">Start Date</label>
+            <input type="date" id="start_date" name="start_date" required>
+        </div>
 
-        <label>End Date</label>
-        <input type="date" name="end_date" required>
+        <div class="form-group">
+            <label for="end_date">End Date</label>
+            <input type="date" id="end_date" name="end_date" required>
+        </div>
 
-        <button type="submit" name="apply">Apply Leave</button>
+        <button type="submit" name="apply" class="btn-submit">Submit Leave Request</button>
+        <a href="leave_history.php" style="display: inline-block; margin-top: 15px; padding: 12px 24px; background-color: #64748b; color: white; border-radius: 6px; text-decoration: none; text-align: center;">
+            Back to Leave History
+        </a>
     </form>
+
+    <div class="info-section" style="margin-top: 30px;">
+        <strong>ℹ️ Information:</strong><br>
+        • Make sure your end date is after your start date<br>
+        • Your leave balance will be updated upon approval<br>
+        • You will receive a notification when your request is reviewed
+    </div>
 </div>
 
 </body>
