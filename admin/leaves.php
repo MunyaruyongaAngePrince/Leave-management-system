@@ -381,7 +381,7 @@ $leaves = getRecords('leaves', '', 'created_at DESC');
                 return;
             }
             
-            console.log('Submitting:', { action, leaveId });
+            // console.log('Submitting:', { action, leaveId });
             
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -409,7 +409,7 @@ $leaves = getRecords('leaves', '', 'created_at DESC');
             .then(html => {
                 console.log('Response received');
                 // Reload page to show updated data
-                alert('Decision submitted successfully!');
+                // alert('Decision submitted successfully!');
                 setTimeout(() => location.reload(), 1000);
             })
             .catch(error => {
